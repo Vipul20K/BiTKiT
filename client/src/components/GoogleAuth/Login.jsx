@@ -138,9 +138,9 @@ const Login = () => {
       // Use full backend URL in production, proxy path in development
       const apiBaseUrl =
         process.env.NODE_ENV === "production"
-          ? "https://bitkit-server.onrender.com"
-          : "";
-      const response = await fetch(`${apiBaseUrl}/api/v1/forum/login`, {
+          ? "https://bitkit-server.onrender.com/api/v1"
+          : "/api/v1";
+      const response = await fetch(`${apiBaseUrl}/forum/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
