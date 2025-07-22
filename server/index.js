@@ -31,9 +31,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const allowedOrigins = [
-  "http://localhost:5173",                   // Dev
-  "https://bitkit-green.vercel.app/"    // Your live frontend domain
-]
+  "http://localhost:5173",                   
+  "https://bitkit-green.vercel.app"
+];
 
 app.use(cors({
   origin: allowedOrigins,
