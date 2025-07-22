@@ -32,7 +32,7 @@ const PORT = process.env.PORT || 3000;
 
 const allowedOrigins = [
   "http://localhost:5173",                   // Dev
-  "https://bitkit-server.onrender.com"    // Your live frontend domain
+  "https://bitkit-green.vercel.app/"    // Your live frontend domain
 ]
 
 app.use(cors({
