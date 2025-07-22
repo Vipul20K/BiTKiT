@@ -12,7 +12,7 @@ const Developer = () => {
     useEffect(() => {
         const getDeveloper = async () => {
             try {
-                const res = await axios.get("http://localhost:3000/api/v1/academics/developer");  // Backend URL
+                const res = await axios.get("https://bitkit-server.onrender.com/api/v1/academics/developer");  // Backend URL
                 setDeveloper(res.data);
             } catch (error) {
                 console.log("Error fetching developer data:", error);

@@ -30,8 +30,13 @@ const { forumConn, academicsConn } = require('./config/connectDB');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const allowedOrigins = [
+  "http://localhost:5173",                   // Dev
+  "https://bitkit-server.onrender.com"    // Your live frontend domain
+]
+
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: allowedOrigins,
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
