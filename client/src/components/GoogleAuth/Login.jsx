@@ -134,7 +134,13 @@ const Login = () => {
 
       const token = await user.getIdToken();
 
-      const response = await fetch("/api/v1/forum/login", {
+
+      // Use full backend URL in production, proxy path in development
+      const apiBaseUrl =
+        process.env.NODE_ENV === "production"
+          ? "https://bitkit-server.onrender.com"
+          : "";
+      const response = await fetch(`${apiBaseUrl}/api/v1/forum/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
