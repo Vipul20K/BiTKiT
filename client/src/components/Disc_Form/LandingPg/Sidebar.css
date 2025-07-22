@@ -1,0 +1,94 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    height: 100vh;
+    border-right: 1px solid #ddd;
+    flex: 0.5;
+    max-width: 200px;
+    background-color: #f8f9fa; /* Light background for better contrast */
+}
+
+.sidebar-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.sidebar-options {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.sidebar-option {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    margin: 10px 0;
+    padding: 5px 0;
+}
+
+a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.7);
+    padding: 8px 10px;
+    display: block; /* Makes full width clickable */
+    border-radius: 4px;
+    transition: background 0.2s ease-in-out;
+}
+
+a:hover {
+    /* background-color: rgba(0, 0, 0, 0.1); */
+    color: #000;
+}
+
+.link {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.link-tag {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.link-tag:hover {
+    border-right: 5px solid rgb(245, 162, 9);
+}
+
+.tags {
+    display: flex;
+    flex-direction: column;
+    color: rgba(0, 0, 0, 0.7);
+    padding: 5px 10px;
+}
+
+.tags > p {
+    margin: 5px 0;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+}
+
+.tags > p:hover {
+    color: #000;
+    font-weight: bold;
+}
+
+/* ✅ Media Query for better responsiveness */
+@media (max-width: 768px) {
+    .sidebar {
+        flex: 0.4;
+        max-width: 150px;
+    }
+
+    .tags > p, a {
+        font-size: 12px;
+        padding: 6px;
+    }
+}

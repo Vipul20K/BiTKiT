@@ -1,0 +1,23 @@
+.stack-index {
+    display: flex;
+    min-height: 85vh;
+    min-width: fit-content;
+    flex-direction: column; /* Changed to column if needed */
+  }
+  
+  .stack-index-content {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .sidebar {
+    width: 200px; /* Adjust width as needed */
+    /* background-color: lightblue; Optional for visibility */
+  }
+  
+  .main {
+    flex-grow: 1; /* Takes the remaining space */
+    /* background-color: lightgreen; Optional for visibility */
+  }
+  
