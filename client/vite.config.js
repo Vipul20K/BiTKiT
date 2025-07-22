@@ -15,5 +15,9 @@ export default defineConfig({
     // headers: {
     //   "Cross-Origin-Opener-Policy": "same-origin",
     // },
+    headers: {
+      "Cross-Origin-Opener-Policy": "same-origin-allow-popups",
+    },
+
   }
 })
