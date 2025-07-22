@@ -159,9 +159,12 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+<<<<<<< HEAD
 import CgpaCalculator from "./pages/tools/CgpaCalculator.jsx";
 <Route path="/tools/cgpa-calculator" element={<CgpaCalculator />} />
 
+=======
+>>>>>>> 55282a86ffac6a45ace9b7f7c0e772f88d1f5763
 
 import Header from "./pages/Disc_Forum/Header/Header.jsx";
 import LandingPg from "./pages/Disc_Forum/LandingPg";

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 55282a86ffac6a45ace9b7f7c0e772f88d1f5763
 import React, { useEffect, useState } from "react";
 import Login from "../components/GoogleAuth/Login";
 import Logout from "../components/GoogleAuth/Logout";
@@ -8,11 +12,21 @@ import { Link, useLocation } from "react-router-dom";
 function Navbar() {
   const forumUser = useSelector((state) => state.users.forumUser);
   const [isOthersOpen, setIsOthersOpen] = useState(false);
+<<<<<<< HEAD
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const location = useLocation();
   const pathname = location.pathname;
   const [sticky, setSticky] = useState(false);
 
+=======
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+  );
+  const location = useLocation();
+  const pathname = location.pathname;
+
+  const [sticky, setSticky] = useState(false);
+>>>>>>> 55282a86ffac6a45ace9b7f7c0e772f88d1f5763
   useEffect(() => {
     const handleScroll = () => {
       setSticky(window.scrollY > 0);
@@ -21,10 +35,18 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+<<<<<<< HEAD
+=======
+  // Close "Others" dropdown when route changes
+>>>>>>> 55282a86ffac6a45ace9b7f7c0e772f88d1f5763
   useEffect(() => {
     setIsOthersOpen(false);
   }, [pathname]);
 
+<<<<<<< HEAD
+=======
+  // Theme logic
+>>>>>>> 55282a86ffac6a45ace9b7f7c0e772f88d1f5763
   const element = document.documentElement;
   useEffect(() => {
     if (theme === "dark") {
@@ -38,6 +60,10 @@ function Navbar() {
     }
   }, [theme]);
 
+<<<<<<< HEAD
+=======
+  // Auto close dropdown + scroll to top
+>>>>>>> 55282a86ffac6a45ace9b7f7c0e772f88d1f5763
   const closeOthersDropdownWithDelay = () => {
     setTimeout(() => {
       setIsOthersOpen(false);
@@ -67,7 +93,11 @@ function Navbar() {
           onClick={() => setIsOthersOpen(!isOthersOpen)}
         >
           <summary className="cursor-pointer py-2 px-2">Others</summary>
+<<<<<<< HEAD
           <ul className="p-2 bg-white dark:bg-slate-800 shadow rounded-md z-50 w-44 text-black dark:text-white">
+=======
+          <ul className="p-2 bg-white dark:bg-slate-800 shadow rounded-md z-50 w-40">
+>>>>>>> 55282a86ffac6a45ace9b7f7c0e772f88d1f5763
             <li>
               <Link to="/sport" className={navLinkClasses("/sport")} onClick={closeOthersDropdownWithDelay}>Sports</Link>
             </li>
@@ -85,11 +115,14 @@ function Navbar() {
             <li>
               <Link to="/downloads" className={navLinkClasses("/downloads")} onClick={closeOthersDropdownWithDelay}>Downloads</Link>
             </li>
+<<<<<<< HEAD
             <li>
               <Link to="/tools/cgpa-calculator" className={navLinkClasses("/tools/cgpa-calculator")} onClick={closeOthersDropdownWithDelay}>
                 CGPA Calculator
               </Link>
             </li>
+=======
+>>>>>>> 55282a86ffac6a45ace9b7f7c0e772f88d1f5763
           </ul>
         </details>
       </li>
@@ -97,7 +130,13 @@ function Navbar() {
   );
 
   return (
+<<<<<<< HEAD
     <div className={`w-full sticky top-0 z-50 bg-white bg-opacity-95 dark:bg-slate-900 dark:text-white ${sticky ? "shadow-md dark:bg-slate-800 transition-all duration-300 ease-in-out" : ""}`}>
+=======
+    <div className={`w-full sticky top-0 z-50 bg-white bg-opacity-95 dark:bg-slate-900 dark:text-white ${sticky ? "shadow-md dark:bg-slate-800 transition-all duration-300 ease-in-out" : ""
+      }`}
+    >
+>>>>>>> 55282a86ffac6a45ace9b7f7c0e772f88d1f5763
       <div className="max-w-screen-2xl container mx-auto md:px-5">
         <div className="navbar">
           <div className="navbar-start">
@@ -131,7 +170,11 @@ function Navbar() {
                 viewBox="0 0 24 24"
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               >
+<<<<<<< HEAD
                 <path d="..." />
+=======
+                <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
+>>>>>>> 55282a86ffac6a45ace9b7f7c0e772f88d1f5763
               </svg>
               <svg
                 className="swap-on h-8 w-8 fill-current"
@@ -139,7 +182,11 @@ function Navbar() {
                 viewBox="0 0 24 24"
                 onClick={() => setTheme(theme === "light" ? "dark" : "light")}
               >
+<<<<<<< HEAD
                 <path d="..." />
+=======
+                <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
+>>>>>>> 55282a86ffac6a45ace9b7f7c0e772f88d1f5763
               </svg>
             </label>
 
