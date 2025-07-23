@@ -156,7 +156,7 @@ router.get("/questions/:id", async (req, res) => {
           tags: 1,
           views: 1,
           votes: 1,
-          createdAt: 1,
+          createdAt: "$created_at",
           answerDetails: 1,
           comments: 1,
            userDetails: {
