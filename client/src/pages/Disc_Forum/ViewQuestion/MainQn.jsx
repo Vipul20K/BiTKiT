@@ -31,7 +31,7 @@ function MainQn() {
 
   const getQuestionDetails = async () => {
     try {
-      const res = await axiosInstance.get(`/api/v1/forum/questions/${id}`);
+      const res = await axiosInstance.get(`/forum/questions/${id}`);
       setQuestionData(Array.isArray(res.data) ? res.data[0] : res.data);
     } catch (err) {
       console.error("Error fetching question details:", err);
