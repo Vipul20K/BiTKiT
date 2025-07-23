@@ -4,37 +4,36 @@ import { Link } from "react-router-dom";
 import { Avatar } from "@mui/material";
 import parse from "html-react-parser";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import axios from "axios";
 import { useSelector } from "react-redux";
 import axiosInstance from "../../../utils/axiosInstance";
 import { Modal, message } from "antd"; // Add Modal here
 
 
-function AllQuestions({ question }) {
+function AllQuestions({ question, onDelete }) {
   const { forumUser } = useSelector((state) => state.users);
+  // const navigate = useNavigate();
 
   const handleDeleteQuestion = () => {
-  Modal.confirm({
-    title: "Are you sure?",
-    content: "Do you really want to delete this question? This action cannot be undone.",
-    okText: "Yes, delete it",
-    okType: "danger",
-    cancelText: "Cancel",
-    onOk: async () => {
-      try {
-        await axiosInstance.delete(`/forum/questions/${question._id}`, {
-          data: { userId: forumUser?._id },
-        });
-
-        message.success("Question deleted successfully.");
-        window.location.reload(); // You can optimize this with a state update
-      } catch (err) {
-        console.error("Delete failed:", err);
-        message.error("You are not authorized to delete this question.");
-      }
-    },
-  });
-};
+    Modal.confirm({
+      title: "Are you sure?",
+      content: "Do you really want to delete this question? This action cannot be undone.",
+      okText: "Yes, delete it",
+      okType: "danger",
+      cancelText: "Cancel",
+      onOk: async () => {
+        try {
+          await axiosInstance.delete(`/forum/questions/${question._id}`, {
+            data: { userId: forumUser?._id },
+          });
+          message.success("Question deleted successfully.");
+          if (onDelete) onDelete(question._id);
+        } catch (err) {
+          console.error("Delete failed:", err);
+          message.error("You are not authorized to delete this question.");
+        }
+      },
+    });
+  };
 
 
   const truncateString = (str, n) =>
