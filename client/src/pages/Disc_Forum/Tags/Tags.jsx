@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../../../utils/axiosInstance";
 
 const Tags = () => {
   const [tags, setTags] = useState([]);
@@ -14,7 +15,7 @@ const Tags = () => {
   useEffect(() => {
     const fetchTags = async () => {
       try {
-        const res = await axios.get("/api/v1/forum/tags");
+        const res = await axiosInstance.get("/forum/tags");
         if (Array.isArray(res.data)) {
           setTags(res.data);
           setFilteredTags(res.data);
