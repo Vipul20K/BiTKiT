@@ -270,6 +270,17 @@ function Navbar() {
             <li>
               <Link to="/downloads" className={navLinkClasses("/downloads")} onClick={closeOthersDropdownWithDelay}>Downloads</Link>
             </li>
+            <li>
+            <a
+              href="https://ankonrh.github.io/cgpa-calculator/"
+              target="_blank"
+              rel="noreferrer"
+              className="block px-2 py-1 hover:bg-gray-200 dark:hover:bg-slate-700 rounded"
+              onClick={() => { closeOthersDropdownWithDelay(); handleMobileNavClose(); }}
+            >
+              CGPA Calculator
+            </a>
+          </li>
           </ul>
         </details>
       </li>
