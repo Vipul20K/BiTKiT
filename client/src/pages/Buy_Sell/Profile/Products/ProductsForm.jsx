@@ -76,6 +76,7 @@ function ProductsForm({
 
   return (
     <Modal
+      className="custom-modal-height"
       title=""
       open={showProductForm}
       onCancel={() => setShowProductForm(false)}
