@@ -72,7 +72,7 @@ function CHEMICAL() {
                     </div>
                     <div>
                         <h4 className='text-bold text-sm mt-5 mb-3 text-red-500'> Note - 
-                        <span className="text-white"> If you have better study resources like notes or YouTube links, feel free to share them with BiTKiT</span></h4>
+                        <span className="text-black dark:text-white"> If you have better study resources like notes or YouTube links, feel free to share them with BiTKiT</span></h4>
                         <a href="https://forms.gle/kwAQt329rWNK99F9A" className="text-blue-400 underline" target="_blank" rel="noopener noreferrer">Contribute</a>
                     </div>
                 </div>
