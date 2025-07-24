@@ -1,17 +1,22 @@
-
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AllQuestions from "./AllQuestions";
 import ConnectWithoutContactTwoToneIcon from "@mui/icons-material/ConnectWithoutContactTwoTone";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
+import { Select } from "antd";
+
+const { Option } = Select;
 
 function Main({ questions, onDelete }) {
   const [filter, setFilter] = useState("Newest");
   const [filteredQuestions, setFilteredQuestions] = useState([]);
 
+  const mobilePrimaryFilters = ["Newest", "Most Viewed"];
+  const mobileMoreFilters = ["Most Voted", "Unanswered"];
+  const allFilters = [...mobilePrimaryFilters, ...mobileMoreFilters];
+
   useEffect(() => {
     const sorted = [...questions];
-
     switch (filter) {
       case "Most Viewed":
         sorted.sort((a, b) => (b.views || 0) - (a.views || 0));
@@ -25,10 +30,11 @@ function Main({ questions, onDelete }) {
       case "Newest":
       default:
         sorted.sort(
-          (a, b) => new Date(b.createdAt || b.created_at) - new Date(a.createdAt || a.created_at)
+          (a, b) =>
+            new Date(b.createdAt || b.created_at) -
+            new Date(a.createdAt || a.created_at)
         );
     }
-
     setFilteredQuestions(sorted);
   }, [questions, filter]);
 
@@ -58,17 +64,66 @@ function Main({ questions, onDelete }) {
           </button>
         </Link>
       </div>
+
       {/* Filter Tabs */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gray-300 dark:border-gray-700 pb-3 sm:pb-4 mb-3 sm:mb-5 gap-3">
         <p className="text-sm sm:text-lg font-semibold text-gray-700 dark:text-gray-200 ml-1">
-          {filteredQuestions.length} {filteredQuestions.length === 1 ? "Question" : "Questions"}
+          {filteredQuestions.length}{" "}
+          {filteredQuestions.length === 1 ? "Question" : "Questions"}
         </p>
-        <div className="flex gap-2 sm:flex-nowrap flex-wrap sm:overflow-x-auto overflow-x-auto scrollbar-hide bg-gray-100 dark:bg-gray-800 p-4 rounded-full shadow-inner">
-          {["Newest", "Most Viewed", "Most Voted", "Unanswered"].map((tab) => (
+
+        {/* Mobile View: Primary buttons + Dropdown */}
+        <div className="flex sm:hidden flex-nowrap gap-1 bg-gray-100 dark:bg-gray-800 px-2 py-3 rounded-full shadow-inner overflow-x-auto">
+          {mobilePrimaryFilters.map((tab) => (
             <button
               key={tab}
               onClick={() => setFilter(tab)}
-              className={`px-3 py-1 text-xs sm:px-4 sm:py-1.5 sm:text-sm rounded-full whitespace-nowrap transition-all duration-300 focus:outline-none ${
+              className={`px-2.5 py-1 text-xs rounded-full whitespace-nowrap transition-all ${
+                filter === tab
+                  ? "bg-blue-600 text-white shadow"
+                  : "text-gray-700 dark:text-gray-300 hover:bg-blue-200 dark:hover:bg-gray-700"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+
+          {/* Ant Design Dropdown for "More" */}
+          <Select
+            value={mobileMoreFilters.includes(filter) ? filter : "More"}
+            onChange={(val) => setFilter(val)}
+            getPopupContainer={() => document.body}
+            dropdownStyle={{
+              zIndex: 9999,
+              backgroundColor: '#1f2937',
+              color: 'white',
+            }}
+            popupClassName="custom-ant-dropdown"
+            className="!bg-gray-100 dark:!bg-gray-800 !text-black dark:!text-white !border-none rounded-md truncate text-xs"
+            style={{
+              minWidth: 90,
+              maxWidth: 110,
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+            }}
+          >
+            <Option value="Most Voted" style={{ backgroundColor: 'inherit', color: 'inherit' }}>
+              Most Voted
+            </Option>
+            <Option value="Unanswered" style={{ backgroundColor: 'inherit', color: 'inherit' }}>
+              Unanswered
+            </Option>
+          </Select>
+        </div>
+
+        {/* Desktop View: All Filters */}
+        <div className="hidden sm:flex gap-2 bg-gray-100 dark:bg-gray-800 p-4 rounded-full shadow-inner">
+          {allFilters.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setFilter(tab)}
+              className={`px-4 py-1.5 text-sm rounded-full transition-all ${
                 filter === tab
                   ? "bg-blue-600 text-white shadow"
                   : "text-gray-700 dark:text-gray-300 hover:bg-blue-200 dark:hover:bg-gray-700"
@@ -79,6 +134,7 @@ function Main({ questions, onDelete }) {
           ))}
         </div>
       </div>
+
       {/* Questions List */}
       <div className="space-y-4 sm:space-y-6">
         {filteredQuestions.length > 0 ? (
@@ -96,6 +152,47 @@ function Main({ questions, onDelete }) {
           </p>
         )}
       </div>
+
+      {/* Inject dark mode styles for dropdown */}
+  <style>
+{`
+  /* Override dropdown items (already working) */
+  .custom-ant-dropdown .ant-select-item {
+    background-color: #1f2937 !important;
+    color: white !important;
+  }
+
+  .custom-ant-dropdown .ant-select-item-option-active {
+    background-color: #374151 !important;
+  }
+
+  .custom-ant-dropdown .ant-select-item-option-selected {
+    background-color: #2563eb !important;
+    color: white !important;
+  }
+
+  /* Force dark mode selector styling */
+  .dark .ant-select-selector {
+    background-color: #1f2937 !important;
+    border-color: #374151 !important;
+    color: white !important;
+  }
+
+  .dark .ant-select-single .ant-select-selection-item {
+    color: white !important;
+  }
+
+  .dark .ant-select-single .ant-select-selection-placeholder {
+    color: white !important;
+  }
+     .dark .ant-select-arrow {
+    color: white !important;
+    fill: white !important;
+  }
+`}
+</style>
+
+
     </div>
   );
 }
