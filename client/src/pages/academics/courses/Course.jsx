@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { message } from "antd";
 import { Link } from "react-router-dom";
 
 function Course() {
+    useEffect(() => {
+    message.info("Academic syllabus based on NEP 2020 guidelines");
+  }, []);
     return (
         <div>
             <div className="max-w-screen-2xl container mx-auto md:px-5">
