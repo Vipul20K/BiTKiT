@@ -123,13 +123,13 @@ const sportsData = [
         description: "A place equipped for physical exercise and strength training.",
         achievements: [
             {
-                photo: "https://scontent.fccu27-1.fna.fbcdn.net/v/t1.6435-9/62137990_2874076355955634_7364654901479079936_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=cAxi_LsmUJcQ7kNvwFht_eY&_nc_oc=AdnblXUTakAAqs8rYNFm1vHCw0_JRkXV_YCjPiu07-hQAs1t2SwQ-WdmzHzvCaYuh2w&_nc_zt=23&_nc_ht=scontent.fccu27-1.fna&_nc_gid=iffbnGQxfHhIEnxYEU77rA&oh=00_AfNWUCTOvxVUBSmBJizKw_G15_90SL-wYap2CoETiztxGw&oe=687D58A6",
+                photo: "https://res.cloudinary.com/dj54bbpg7/image/upload/v1753367090/gym_vvth72.jpg",
             },
             {
                 photo: "https://res.cloudinary.com/dj54bbpg7/image/upload/v1750465291/WhatsApp_Image_2025-06-20_at_22.58.25_2093703c_wntow0.jpg",
             },
             {
-                photo: "https://scontent.fccu20-1.fna.fbcdn.net/v/t1.6435-9/63176246_2874076339288969_2492019933005742080_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=ts0Z1hRaD-oQ7kNvwEsSUmD&_nc_oc=Adn0hpJqK2H6JgeSRCYoaAP1rISU8cEhg6T3p7Wnhnv4l3wnqaGosY_yMpioo0gjPM4&_nc_zt=23&_nc_ht=scontent.fccu20-1.fna&_nc_gid=PrOa5RpKqobLraBHdIRaGQ&oh=00_AfOBuAZFtTf3ZoG8TWzSxy8fg5jerQk-Ism_XtKbwSq91w&oe=687D78A8",
+                photo: "https://res.cloudinary.com/dj54bbpg7/image/upload/v1753367177/gym2_hwedhy.jpg",
             },
             {
                 photo: "https://res.cloudinary.com/dj54bbpg7/image/upload/v1750465165/WhatsApp_Image_2025-06-20_at_22.58.19_7bba2300_x4vnxw.jpg",
