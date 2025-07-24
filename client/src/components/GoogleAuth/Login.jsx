@@ -18,8 +18,7 @@ const Login = () => {
   const [showLoginSpinner, setShowLoginSpinner] = useState(false); // 🔄 local loader
 
   const handleGoogleLogin = () => {
-    setShowLoginSpinner(true); // ✅ Show modal spinner
-    dispatch(setLoader(true)); // Optional: global loader
+    setShowLoginSpinner(true);
 
     setTimeout(async () => {
       try {
@@ -73,12 +72,14 @@ const Login = () => {
         }
       } catch (error) {
         console.error("Login error:", error);
-        message.error("Something went wrong.");
+        if (error.code !== "auth/popup-closed-by-user") {
+          message.error("Something went wrong during login.");
+        }
+        // ❌ Do nothing if popup was closed manually
       } finally {
-        dispatch(setLoader(false));
         setShowLoginSpinner(false);
       }
-    }, 100); // Delay to allow DOM to paint spinner
+    }, 100);
   };
 
   return (
