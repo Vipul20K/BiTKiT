@@ -41,6 +41,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setForumUser, setBuySellUser } from "../../redux/usersSlice";
 import { toast } from "react-hot-toast";
+import { message } from "antd";
 
 const Logout = () => {
   const dispatch = useDispatch();
@@ -59,7 +60,7 @@ const Logout = () => {
       dispatch(setBuySellUser(null));
 
       //alert("👋 Logged out");
-      toast.success("👋 Logged out");
+      message.success("Logged out successfully");
       navigate("/");
     } catch (error) {
       console.error("Logout failed:", error);
@@ -82,3 +83,4 @@ const Logout = () => {
 };
 
 export default Logout;
+
