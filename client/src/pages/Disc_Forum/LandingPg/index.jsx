@@ -28,14 +28,21 @@ function Index() {
   };
 
   return (
-    <div className="stack-index dark:bg-slate-800 dark:text-white min-h-screen">
-      <div className="stack-index-content flex flex-col md:flex-row w-full">
-        <Sidebar className="sidebar dark:bg-slate-800 dark:text-white w-full md:w-[240px] flex-shrink-0" />
-        <div className="main dark:bg-slate-800 dark:text-white flex-1">
-          <Main questions={questions} onDelete={handleDeleteFromState} />
-        </div>
-      </div>
+  <div className="stack-index dark:bg-gray-900 dark:text-white min-h-screen w-full">
+  <div className="flex flex-col md:flex-row w-full min-h-screen">
+    
+    {/* Sidebar: sticky only on md+ screens */}
+    <div className="w-full md:w-[240px] md:h-screen md:sticky md:top-0 md:block hidden border-r border-gray-300 dark:border-gray-700 bg-white dark:bg-slate-800">
+      <Sidebar />
     </div>
+
+    {/* Main: scrollable only when sidebar is fixed */}
+    <div className="flex-1 overflow-y-auto">
+      <Main questions={questions} onDelete={handleDeleteFromState} />
+    </div>
+  </div>
+</div>
+
   );
 }
 
