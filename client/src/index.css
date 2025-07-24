@@ -18,3 +18,9 @@ body{
   background-color: #d1d5db;
   border-radius: 6px;
 }
+
+@media (max-width: 640px) {
+  .custom-modal-height .ant-modal-body {
+    max-height: 65vh !important;
+  }
+}
