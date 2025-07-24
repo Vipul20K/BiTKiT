@@ -1,79 +1,84 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { auth, provider } from "../../firebase";
 import { signInWithPopup, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setForumUser, setBuySellUser } from "../../redux/usersSlice";
-import { message } from "antd";
-// 👇 Force account selection every time
-    provider.setCustomParameters({
-      prompt: "select_account"
-    });
+import { message, Spin } from "antd";
+import { setLoader } from "../../redux/loadersSlice";
+
+provider.setCustomParameters({
+  prompt: "select_account",
+});
+
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [showLoginSpinner, setShowLoginSpinner] = useState(false); // 🔄 local loader
 
-  const handleGoogleLogin = async () => {
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-      const email = user.email;
-      const domain = email.split("@")[1];
+  const handleGoogleLogin = () => {
+    setShowLoginSpinner(true); // ✅ Show modal spinner
+    dispatch(setLoader(true)); // Optional: global loader
 
-      if (domain !== "bitmesra.ac.in") {
-         message.error("Access denied. Use your BIT Mesra email.");
-        await signOut(auth);
-        return;
+    setTimeout(async () => {
+      try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+        const email = user.email;
+        const domain = email.split("@")[1];
+
+        if (domain !== "bitmesra.ac.in") {
+          message.error("Access denied. Use your BIT Mesra email.");
+          await signOut(auth);
+          return;
+        }
+
+        const token = await user.getIdToken();
+
+        const apiBaseUrl =
+          process.env.NODE_ENV === "production"
+            ? "https://bitkit-server.onrender.com/api/v1"
+            : "/api/v1";
+
+        const response = await fetch(`${apiBaseUrl}/forum/login`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({}),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          localStorage.setItem("Users", JSON.stringify(data.forumUser));
+          localStorage.setItem("BuySellUser", JSON.stringify(data.buySellUser));
+
+          dispatch(setForumUser(data.forumUser));
+          dispatch(setBuySellUser(data.buySellUser));
+
+          document.getElementById("my_modal_5").close();
+          message.success({
+            content: `Welcome ${user.displayName}`,
+            duration: 5,
+            style: { fontSize: "16px" },
+          });
+
+          navigate("/");
+        } else {
+          message.error("Server rejected access");
+          await signOut(auth);
+        }
+      } catch (error) {
+        console.error("Login error:", error);
+        message.error("Something went wrong.");
+      } finally {
+        dispatch(setLoader(false));
+        setShowLoginSpinner(false);
       }
-
-      const token = await user.getIdToken();
-
-
-      // Use full backend URL in production, proxy path in development
-      const apiBaseUrl =
-        process.env.NODE_ENV === "production"
-          ? "https://bitkit-server.onrender.com/api/v1"
-          : "/api/v1";
-      const response = await fetch(`${apiBaseUrl}/forum/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({}),
-      });
-
-      const data = await response.json();
-      console.log("Login response data:", data);
-
-      if (response.ok) {
-        // Persist in localStorage (optional)
-        localStorage.setItem("Users", JSON.stringify(data.forumUser));
-        localStorage.setItem("BuySellUser", JSON.stringify(data.buySellUser));
-
-        // Update Redux store
-        dispatch(setForumUser(data.forumUser));
-        dispatch(setBuySellUser(data.buySellUser));
-
-        document.getElementById("my_modal_5").close();
-        message.success( {
-  content: `Welcome ${user.displayName} `,
-  duration: 5, // seconds the message will stay visible
-  style: {
-    fontSize: "16px",
-  },
-});
-        navigate("/");
-      } else {
-        message.error("Server rejected access");
-        await signOut(auth);
-      }
-    } catch (error) {
-      console.error("Login error:", error);
-      message.error("Something went wrong.");
-    }
-    
+    }, 100); // Delay to allow DOM to paint spinner
   };
 
   return (
@@ -82,7 +87,7 @@ const Login = () => {
         id="my_modal_5"
         className="modal modal-bottom sm:modal-middle md:ml-2"
       >
-        <div className="modal-box">
+        <div className="modal-box relative">
           <button
             type="button"
             onClick={() => document.getElementById("my_modal_5").close()}
@@ -99,14 +104,17 @@ const Login = () => {
             <i className="fa-solid fa-circle-info fa-xl"></i>
           </h5>
 
-          <div className="flex flex-col items-center mt-6">
-            <button
-              onClick={handleGoogleLogin}
-              className="bg-pink-500 text-white rounded-md px-6 py-2 hover:bg-pink-700 duration-200 shadow-md"
-            >
-              <i className="fa-brands fa-google mr-2"></i> Sign in with Google
-            </button>
-
+          <div className="flex flex-col items-center mt-6 relative">
+            {showLoginSpinner ? (
+              <Spin tip="Redirecting to Google..." size="large" />
+            ) : (
+              <button
+                onClick={handleGoogleLogin}
+                className="bg-pink-500 text-white rounded-md px-6 py-2 hover:bg-pink-700 duration-200 shadow-md"
+              >
+                <i className="fa-brands fa-google mr-2"></i> Sign in with Google
+              </button>
+            )}
             <p className="text-sm text-gray-600 mt-4 text-center">
               Only{" "}
               <span className="font-semibold text-blue-600">
@@ -122,3 +130,4 @@ const Login = () => {
 };
 
 export default Login;
+
