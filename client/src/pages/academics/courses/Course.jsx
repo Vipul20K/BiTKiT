@@ -9,7 +9,7 @@ function Course() {
                     <h1 className="text-4xl md:text-6xl font-bold text-pink-500 md:mt-1">
                         Branches
                     </h1>
-                    <p className="mt-3">Select Your Branch</p>
+                    <p className="mt-3 text-white">Select Your Branch</p>
                 </div>
             </div>
             <div className="md:max-w-screen-4xl container mx-auto md:px-5 mt-7">
