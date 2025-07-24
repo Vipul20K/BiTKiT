@@ -47,7 +47,7 @@ function About() {
 
             <h2 className="text-2xl font-semibold mt-8 mb-3">📫 Contact</h2>
             <p className="text-base">
-                For feedback, suggestions, Bugs or collaborations, feel free to <a href="https://forms.gle/kwAQt329rWNK99F9A" className="text-blue-400 underline" target="_blank" rel="noopener noreferrer">Contact us</a>.
+                For feedback, suggestions, Bugs or collaborations, feel free to <a href="https://forms.gle/zSyy1qBDRNNRJemZA" className="text-blue-400 underline" target="_blank" rel="noopener noreferrer">Contact us</a>.
             </p>
         </div>
         {/* <Footer/> */}
