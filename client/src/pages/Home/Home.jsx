@@ -4,6 +4,7 @@ import Banner from './Banner';
 import Developer from './Developer';
 import Footer from '../../components/Footer';
 import Review from "./Review";
+import FAQS from '../faqs/FAQS';
 function Home() {
 
     return (
@@ -17,6 +18,7 @@ function Home() {
             </div>
             <Developer />
             <Review />
+            <FAQS />
             {/* <Footer /> */}
         </>
     );
