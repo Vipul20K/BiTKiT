@@ -2,7 +2,7 @@ import React from 'react';
 
 const ReviewSection = () => {
     const handleClick = () => {
-        window.open("https://forms.gle/kwAQt329rWNK99F9A", "_blank");
+        window.open("https://forms.gle/zSyy1qBDRNNRJemZA", "_blank");
     };
 
     return (
