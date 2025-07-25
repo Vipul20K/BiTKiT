@@ -91,13 +91,55 @@ function FAQS() {
                     <div className="collapse collapse-plus bg-base-200">
                         <input type="radio" name="my-accordion-3" />
                         <div className="collapse-title text-xl font-medium">
-                            How does the Connect feature work on BITKIT?
+                            How does the Discussion Forum feature work on BiTKiT?
                         </div>
                         <div className="collapse-content">
                             <p>
                                 Connect lets juniors ask questions and get answers from seniors, with upvote/downvote options to highlight helpful responses — ideal for mentorship and peer support.
                             </p>
                         </div>
+                    </div>
+
+                    <div className="collapse collapse-plus bg-base-200">
+                        <input type="radio" name="my-accordion-3" />
+                        <div className="collapse-title text-xl font-medium">
+                           How do I join a club or community ? 
+                        </div>
+                        <div className="collapse-content">
+                            <p>
+                                Each club’s card includes links to their official handles (Instagram, LinkedIn, website, etc.). You can follow their announcements or reach out via the provided links to learn about recruitment drives or events.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="collapse collapse-plus bg-base-200">
+                        <input type="radio" name="my-accordion-3" />
+                        <div className="collapse-title text-xl font-medium">
+                           Is BiTKit only for freshers or all students?
+                        </div>
+                        <div className="collapse-content">
+                            <p>
+                                BiTKit is designed for all students, whether you’re a fresher exploring options, a senior looking to connect with a community, or even alumni checking out what's new on campus.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="collapse collapse-plus bg-base-200">
+                      <input type="radio" name="my-accordion-3" />
+                      <div className="collapse-title text-xl font-medium">
+                        What is included in the ‘Others’ section of BITKit?
+                      </div>
+                      <div className="collapse-content">
+                        <p className="space-y-2">
+                          The ‘Others’ section hosts features and resources beyond clubs. It includes:
+                          <ul className="list-disc list-inside mt-2 space-y-1">
+                            <li>🏅 <strong>Sports & Activities</strong> – Explore campus sports facilities and achievements.</li>
+                            <li>📥 <strong>Downloads</strong> – Access important campus-related documents and forms.</li>
+                            <li>📊 <strong>CGPA Calculator</strong> – Easily calculate your CGPA semester-wise.</li>
+                            <li>🎉 <strong>Bitotsav Page</strong> – Get official updates on BIT Mesra’s biggest cultural fest.</li>
+                          </ul>
+                        </p>
+                      </div>
                     </div>
 
                 </div>
