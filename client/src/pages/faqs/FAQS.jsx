@@ -127,7 +127,7 @@ function FAQS() {
                     <div className="collapse collapse-plus bg-base-200">
                       <input type="radio" name="my-accordion-3" />
                       <div className="collapse-title text-xl font-medium">
-                        What is included in the ‘Others’ section of BITKit?
+                        What is included in the ‘Others’ section of BiTKiT?
                       </div>
                       <div className="collapse-content">
                         <p className="space-y-2">
