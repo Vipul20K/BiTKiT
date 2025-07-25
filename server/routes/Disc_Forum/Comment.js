@@ -65,7 +65,7 @@ setImmediate(async () => {
           <blockquote style="color: #555; border-left: 3px solid #19376d; padding-left: 10px; margin: 10px 0;">
             ${comment}
           </blockquote>
-          <p><a href="https://bitkit-green.vercel.app/disc_forum_homepage/questions/${questionId}">Click here</a> to view the discussion.</p>
+          <p><a href="https://bitkit-green.vercel.app">Click here</a> to check it out on the website.</p>
           <br/>
           <p>— Team BiTKiT</p>
         `,
