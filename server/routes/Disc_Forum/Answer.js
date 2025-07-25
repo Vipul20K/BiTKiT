@@ -58,7 +58,7 @@ router.post('/answers', authMiddleware, async (req, res) => {
               <blockquote style="color: #555; border-left: 3px solid #19376d; padding-left: 10px; margin: 10px 0;">
                 ${answer}
               </blockquote>
-              <p><a href="http://localhost:5173/disc_forum_homepage/questions/${question_id}">Click here</a> to view the answer.</p>
+              <p><a href="https://bitkit-green.vercel.app/disc_forum_homepage/questions/${question_id}">Click here</a> to view the answer.</p>
               <br/>
               <p>– Team BiTKiT</p>
             `,
