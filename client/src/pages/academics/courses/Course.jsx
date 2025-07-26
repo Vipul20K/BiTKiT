@@ -1,11 +1,32 @@
 import React, { useEffect } from "react";
-import { message } from "antd";
+import { message, Button } from "antd";
 import { Link } from "react-router-dom";
 
 function Course() {
+  //   useEffect(() => {
+  //   message.info("Academic syllabus based on NEP 2020 guidelines");
+  // }, []);
     useEffect(() => {
-    message.info("Academic syllabus based on NEP 2020 guidelines");
-  }, []);
+        const key = 'nep-info';
+
+        message.open({
+            key,
+            type: 'info',
+            duration: 3, // auto-close after 5 seconds
+            content: (
+                <div className="flex items-center justify-between gap-4">
+                    <span>Academic syllabus based on NEP 2020 guidelines</span>
+                    <Button
+                        size="small"
+                        type="text"
+                        onClick={() => message.destroy(key)}
+                    >
+                        ❌
+                    </Button>
+                </div>
+            ),
+        });
+    }, []);
     return (
         <div>
             <div className="max-w-screen-2xl container mx-auto md:px-5">
