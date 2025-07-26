@@ -29,7 +29,7 @@ router.post("/add-product", authMiddleware, async (req, res) => {
             <p>A new product has been added to BiTKiT${
               req.user?.name ? ` by <strong>${req.user.name}</strong>` : ""
             }.</p>
-            <p>Visit <a href="http://localhost:5173/admin">BiTKiT Admin Panel</a> to review it.</p>
+            <p>Visit <a href="https://bitkit-green.vercel.app/admin">BiTKiT Admin Panel</a> to review it.</p>
             <br/>
             <p>– Team BiTKiT</p>
           `,
@@ -242,7 +242,7 @@ router.put("/update-product-status/:id", authMiddleware, async (req, res) => {
         html: `
       <p>Hello ${updatedProduct.seller.name},</p>
       <p>Your product <strong>${updatedProduct.name}</strong> has been <strong>${status}</strong> by BiTKiT admin team.</p>
-      <p>Visit your <a href="http://localhost:5173/profile">profile</a> to view details.</p>
+      <p>Visit your <a href="https://bitkit-green.vercel.app/profile">profile</a> to view details.</p>
       <br/>
       <p>– Team BiTKiT</p>
     `,
