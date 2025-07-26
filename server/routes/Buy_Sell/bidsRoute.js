@@ -28,7 +28,7 @@ router.post("/place-new-bid",authMiddleware, async (req, res) => {
       html: `
         <p>Hello ${product.seller.name},</p>
         <p>A new bid of ₹<strong>${amount}</strong> has been placed on your product <strong>${product.name}</strong>.</p>
-        <p>Login to <a href="http://localhost:5173/login">BiTKiT</a> to view the bid.</p>
+        <p>Login to <a href="https://bitkit-green.vercel.app/profile">BiTKiT</a> to view the bid.</p>
         <br/>
         <p>– Team BiTKiT</p>
       `,
