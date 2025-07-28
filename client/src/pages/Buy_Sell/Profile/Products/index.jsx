@@ -275,7 +275,7 @@ function Products() {
       render: (text, record) => (
         <div className="flex gap-5 items-center">
           <span
-            className="underline cursor-pointer text-blue-500 font-bold"
+            className="underline cursor-pointer text-blue-500 font-semibold"
             onClick={() => {
               setSelectedProduct(record);
               setShowBids(true);
