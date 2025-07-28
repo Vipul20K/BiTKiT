@@ -107,7 +107,7 @@ function Bids() {
       }
     } catch (error) {
       dispatch(setLoader(false));
-      // message.error(error.message);
+      message.error(error.message);
     }
   };
 
@@ -148,7 +148,7 @@ function Bids() {
         <div>
           <p>Phone: {record?.mobile || "N/A"}</p>
           <p>Email: {record?.buyer?.email || "N/A"}</p>
-          <p>Hostel: {record?.hostel || "N/A"}</p>
+          <p>Hostel: H-{record.hostel || "N/A"}</p>
         </div>
       ),
     },
