@@ -55,7 +55,7 @@ function Bids({ showBidsModal, setShowBidsModal, selectedProduct }) {
           <div>
             <p>Phone: {record.mobile}</p>
             <p>Email: {record.buyer.email}</p>
-            <p>Hostel: H - {record.hostel}</p>
+            <p>Hostel: H-{record.hostel}</p>
           </div>
         );
       },
