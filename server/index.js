@@ -26,6 +26,9 @@ const unBlockUserRoute = require('./routes/unBlockUser'); // Importing unBlockUs
 // Import database connections
 const { forumConn, academicsConn } = require('./config/connectDB');
 
+// Cron job import at the top
+const keepAlive = require('./cron/keepRenderAwake');
+
 // Initialize Express app
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -79,4 +82,6 @@ app.use('/api/v1/academics', developerRoute);
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is listening on http://localhost:${PORT}`);
+  // Start the cron job to keep Render alive
+  keepAlive();
 });
