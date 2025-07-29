@@ -10,9 +10,17 @@ app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
 
+app.get('/health', (req, res) => {
+  res.status(200).send('Server is alive!');
+});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is listening on http://localhost:${PORT}`);
+
+  // Start cron job *after* server has started
+  const keepAlive = require('./cron/keepRenderAwake');
+  keepAlive();
 });
 
 // // Steps to add cron jobs (done by Deep kumar)
