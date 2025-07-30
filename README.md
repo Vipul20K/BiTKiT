@@ -34,7 +34,7 @@
 
 ## 👨‍💻 Developers
 
-- [Vipul Raj](https://www.linkedin.com/in/vipul-kumar-212445256/) — `MERN Stack Developer`  
+- [Vipul Kumar](https://www.linkedin.com/in/vipul-kumar-212445256/) — `MERN Stack Developer`  
 - [Deep Kumar](https://www.linkedin.com/in/deep-kumar-081784222/) — `MERN Stack Developer`  
 - [Ravi Ram](https://www.linkedin.com/in/ravi-ram-43451a249/) — `MERN Stack Developer`  
 - [Ankon Rishav Haldar](https://www.linkedin.com/in/ankon-rishav-haldar-29b8951b3/) — `MERN Stack Developer`  
